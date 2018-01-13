@@ -94,11 +94,25 @@ class PesertaController extends Controller
            return 'false';
         } else {
             Peserta::where('no_peserta', 'like', $id)->update(['login' => True]);
-            return Peserta::where('no_peserta', 'like', $id)->get()->toArray();
+            return Peserta::where('no_peserta', 'like', $id)->get();
         }
     }
 
-    public function dataPeserta() {
+    public function dataPeserta($no_peserta) {
+        $peserta = Peserta::where('no_peserta', '=', $no_peserta)->get()->toArray();
+        return view('peserta')
+           ->with('peserta', $peserta);
+    }
 
+    public function checkPeserta(Request $request)
+    {   
+        $id = '____' . $request->no_peserta;
+        $peserta = Peserta::where('no_peserta', 'like', $id)->first();
+        if (!$peserta) {
+            return "false";
+        }
+        else {
+            return "true";
+        }
     }
 }

@@ -26,3 +26,7 @@ Route::get('downloadExcel/{type}', 'ExcelController@downloadExcel');
 Route::post('importExcel', 'ExcelController@importExcel');
 
 Route::post('register', 'PesertaController@register');
+
+Route::get('checkIfExist', 'PesertaController@checkPeserta');
+
+Route::get('/{no_peserta}', 'PesertaController@dataPeserta');

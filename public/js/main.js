@@ -3,39 +3,51 @@
     "use strict";
     /*==================================================================
     [ Form ]*/
-    $('#formPeserta').on('click', function(){
-        resetErrors();
-        var id = $('#no_peserta').val();
-        $.ajaxSetup({
-            headers: {
-              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-          });
-        $.ajax({
-            url: '/register',
-            type: 'post',
-            data: {
-                no_peserta: id
-            },
-            success: function(html, data) {
-                if(data == 'false') {
-                    document.getElementById("fail").style.color = "red";
-                    document.getElementById("fail").innerHTML = 'Tidak ada no urut tersebut';
-                }
-                else {
-                    $('form').submit();
-                    return false;
-                }
-                return false;
-            }
-        });    
-        return false;    
-    });
+    // $('#formPeserta').submit(function(){
+    //     var id = $('#no_peserta').val();
+    //     $.ajaxSetup({
+    //         headers: {
+    //           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    //         }
+    //       });
+    //     $.ajax({
+    //         url: '/register',
+    //         type: 'post',
+    //         data: {
+    //             no_peserta: id
+    //         },
+    //         success: function(html, data) {
+    //             if(data == 'false') {
+    //                 document.getElementById("fail").style.color = "red";
+    //                 document.getElementById("fail").innerHTML = 'Tidak ada no urut tersebut';
+    //             }
+    //         }
+    //     });        
+    // });
 
-    function resetErrors() {
-        $('form input, form select').removeClass('inputTxtError');
-        $('label.error').remove();
-    }
+    $("#formPeserta").validate({
+        rules: {
+            no_peserta: {
+                required: true,
+                digits: true,
+                maxlength: 5,
+                remote: "/checkIfExist"
+            }
+        },
+    
+        submitHandler: function(form) {
+            $.ajax({
+                url: '/register',
+                type: 'post',
+                headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                data: $(form).serialize(),
+                success: function(data) {
+                    var no_peserta = data[0]['no_peserta'];
+                    window.location = '/' + no_peserta;
+                }
+            });
+        }
+    });
     
 
     /*==================================================================

@@ -14,8 +14,9 @@
         </span>
 
         <div class="wrap-input100 validate-input" data-validate = "Berisi 5 Angka">
-          <input id="no_peserta" class="input100" type="text" name="no_peserta">
-          <span class="focus-input100" data-placeholder="No. Peserta"></span>
+          <input id="no_peserta" class="input100" type="text" name="no_peserta" placeholder="No.Peserta">
+          <label for=""></label>
+          <!-- <span class="focus-input100" data-placeholder="No. Peserta"></span> -->
         </div>
 
         <div class="container-login100-form-btn">

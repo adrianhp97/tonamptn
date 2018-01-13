@@ -6,7 +6,8 @@
 
 <!-- <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>  -->
 <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.css">
 
