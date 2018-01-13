@@ -12,7 +12,12 @@
       </div>
       <div>
         <span>
-        @if ($peserta[0]['login'] === 1)
+        <!-- @if ($peserta[0]['login'] === 1)
+          Sudah Register
+        @else
+          Belum Register
+        @endif -->
+        @if ($peserta[0]['login'] == 'true')
           Sudah Register
         @else
           Belum Register
