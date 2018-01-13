@@ -22,9 +22,6 @@
                     document.getElementById("fail").innerHTML = 'Tidak ada no urut tersebut';
                 }
             }
-        })
-        .fail(function() {
-            alert( "error" );
         });        
     });
 
