@@ -8,6 +8,7 @@ $(function () {
       pageSize: 10,
       showColumns: 'true',
       showToggle: 'true',
+      sortName: 'no_peserta',
       search: 'true',
       columns: [{
           field: 'no_peserta',
