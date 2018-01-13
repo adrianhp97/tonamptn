@@ -3,7 +3,8 @@
     "use strict";
     /*==================================================================
     [ Form ]*/
-    $('#formPeserta').submit(function(){
+    $('#formPeserta').on('click', function(){
+        resetErrors();
         var id = $('#no_peserta').val();
         $.ajaxSetup({
             headers: {
@@ -21,9 +22,21 @@
                     document.getElementById("fail").style.color = "red";
                     document.getElementById("fail").innerHTML = 'Tidak ada no urut tersebut';
                 }
+                else {
+                    $('form').submit();
+                    return false;
+                }
+                return false;
             }
-        });        
+        });    
+        return false;    
     });
+
+    function resetErrors() {
+        $('form input, form select').removeClass('inputTxtError');
+        $('label.error').remove();
+    }
+    
 
     /*==================================================================
     [ Focus input ]*/
