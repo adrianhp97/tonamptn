@@ -73,6 +73,10 @@ a:hover {
   height: auto !important;
 }
 
+.middle-span {
+  text-align: center;
+}
+
 .fixed-table-body {
   height: auto !important;
 }
